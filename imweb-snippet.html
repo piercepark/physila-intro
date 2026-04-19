@@ -1,0 +1,25 @@
+<!-- 👇 아임웹 "코드" 블록에 아래 전체를 복사해서 붙여넣으세요 -->
+<div id="physila-intro-embed" style="width:100%;max-width:100%;margin:0 auto">
+  <iframe
+    id="physila-intro-iframe"
+    src="https://piercepark.github.io/physila-intro/"
+    title="김수현 · 수현쌤 — 프로필"
+    loading="lazy"
+    style="display:block;width:100%;border:0;overflow:hidden"
+    scrolling="no"
+    allowfullscreen></iframe>
+</div>
+<script>
+(function(){
+  var iframe = document.getElementById('physila-intro-iframe');
+  if (!iframe) return;
+  iframe.style.height = '3200px';
+  window.addEventListener('message', function(e){
+    var d = e && e.data;
+    if (!d || d.type !== 'physila-intro-height') return;
+    var h = parseInt(d.height, 10);
+    if (h && h > 100) iframe.style.height = h + 'px';
+  });
+})();
+</script>
+<!-- 👆 여기까지 -->

@@ -645,5 +645,18 @@
   </footer>
 </div>
 
+<script>
+(function(){
+  function postHeight(){
+    var h = document.documentElement.scrollHeight;
+    if (window.parent !== window) window.parent.postMessage({type:'physila-intro-height', height:h}, '*');
+  }
+  window.addEventListener('load', postHeight);
+  window.addEventListener('resize', function(){ setTimeout(postHeight, 50); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(postHeight);
+  setTimeout(postHeight, 300);
+  setTimeout(postHeight, 1200);
+})();
+</script>
 
 </body></html>
